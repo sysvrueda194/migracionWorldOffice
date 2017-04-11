@@ -9,8 +9,6 @@ import Codigo.CargaCompras;
 import Codigo.cargaVentas;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.DefaultListModel;
@@ -230,6 +228,7 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
             }
         });
 
+        JRB_facturaCompra.setSelected(true);
         JRB_facturaCompra.setText("Facturas de Compra");
 
         JRB_facturaVenta.setText("Facturas de Venta");

@@ -156,6 +156,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="JRB_facturaCompra">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Facturas de Compra"/>
       </Properties>
     </Component>
