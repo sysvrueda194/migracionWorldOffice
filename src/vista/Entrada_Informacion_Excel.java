@@ -12,7 +12,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -41,6 +45,128 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
         //muestraCiudad();
     }
 
+    public static DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public static void setModelo(DefaultTableModel modelo) {
+        Entrada_Informacion_Excel.modelo = modelo;
+    }
+
+    public TableRowSorter getTrsFiltro() {
+        return trsFiltro;
+    }
+
+    public void setTrsFiltro(TableRowSorter trsFiltro) {
+        this.trsFiltro = trsFiltro;
+    }
+
+    public String getDireccionArchivo() {
+        return DireccionArchivo;
+    }
+
+    public void setDireccionArchivo(String DireccionArchivo) {
+        this.DireccionArchivo = DireccionArchivo;
+    }
+
+    public Salida_informacion_excel getSIE() {
+        return SIE;
+    }
+
+    public void setSIE(Salida_informacion_excel SIE) {
+        this.SIE = SIE;
+    }
+
+    public Salida_informacion_terceros getSIT() {
+        return SIT;
+    }
+
+    public void setSIT(Salida_informacion_terceros SIT) {
+        this.SIT = SIT;
+    }
+
+    public DefaultTableModel getModelo_base_iva_excento() {
+        return modelo_base_iva_excento;
+    }
+
+    public void setModelo_base_iva_excento(DefaultTableModel modelo_base_iva_excento) {
+        this.modelo_base_iva_excento = modelo_base_iva_excento;
+    }
+
+    public DefaultTableModel getModelo_terceros() {
+        return modelo_terceros;
+    }
+
+    public void setModelo_terceros(DefaultTableModel modelo_terceros) {
+        this.modelo_terceros = modelo_terceros;
+    }
+
+    public String[] getCiudades() {
+        return ciudades;
+    }
+
+    public void setCiudades(String[] ciudades) {
+        this.ciudades = ciudades;
+    }
+
+    public JButton getBTN_creacionArchivosImportacion() {
+        return BTN_creacionArchivosImportacion;
+    }
+
+    public void setBTN_creacionArchivosImportacion(JButton BTN_creacionArchivosImportacion) {
+        this.BTN_creacionArchivosImportacion = BTN_creacionArchivosImportacion;
+    }
+
+    public JButton getBTN_seleccionArchivo() {
+        return BTN_seleccionArchivo;
+    }
+
+    public void setBTN_seleccionArchivo(JButton BTN_seleccionArchivo) {
+        this.BTN_seleccionArchivo = BTN_seleccionArchivo;
+    }
+
+    public JTable getJT_Importacion() {
+        return JT_Importacion;
+    }
+
+    public void setJT_Importacion(JTable JT_Importacion) {
+        this.JT_Importacion = JT_Importacion;
+    }
+
+    public JTextField getTXT_nitEmpresa() {
+        return TXT_nitEmpresa;
+    }
+
+    public void setTXT_nitEmpresa(JTextField TXT_nitEmpresa) {
+        this.TXT_nitEmpresa = TXT_nitEmpresa;
+    }
+
+    public JTextField getTXT_nombreEmpresa() {
+        return TXT_nombreEmpresa;
+    }
+
+    public void setTXT_nombreEmpresa(JTextField TXT_nombreEmpresa) {
+        this.TXT_nombreEmpresa = TXT_nombreEmpresa;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +176,7 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BG_tipoFactura = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_Importacion = new javax.swing.JTable();
         BTN_seleccionArchivo = new javax.swing.JButton();
@@ -57,6 +184,8 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
         TXT_nombreEmpresa = new javax.swing.JTextField();
         TXT_nitEmpresa = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        JRB_facturaCompra = new javax.swing.JRadioButton();
+        JRB_facturaVenta = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Importacion WORLD OFFICE // Carga archivo a importar");
@@ -99,6 +228,10 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
             }
         });
 
+        JRB_facturaCompra.setText("Facturas de Compra");
+
+        JRB_facturaVenta.setText("Facturas de Venta");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,15 +243,19 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(TXT_nombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TXT_nitEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(BTN_seleccionArchivo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BTN_creacionArchivosImportacion)
                                 .addGap(52, 52, 52)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(TXT_nombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TXT_nitEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton1)))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JRB_facturaCompra)
+                            .addComponent(JRB_facturaVenta))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -126,14 +263,20 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TXT_nombreEmpresa)
-                    .addComponent(TXT_nitEmpresa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTN_seleccionArchivo)
-                    .addComponent(BTN_creacionArchivosImportacion)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TXT_nombreEmpresa)
+                            .addComponent(TXT_nitEmpresa))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BTN_seleccionArchivo)
+                            .addComponent(BTN_creacionArchivosImportacion)
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JRB_facturaCompra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JRB_facturaVenta)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                 .addContainerGap())
@@ -150,29 +293,9 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
 
     private void BTN_creacionArchivosImportacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_creacionArchivosImportacionActionPerformed
         // TODO add your handling code here:
-        for (int i = 0; i < JT_Importacion.getRowCount(); i++) {
-            boolean cuentaIVA;
-            if ((JT_Importacion.getValueAt(i, 14).toString().isEmpty())) {
-                cuentaIVA = false;
-                //System.out.println("El valor del iva en la fila " + i + " es: " + JT_Importacion.getValueAt(i, 14) + " el valor de 'cuentaIVA' es " + cuentaIVA + " y ejecutara 'cargaBase_iva'");
-            } else {
-                cuentaIVA = true;
-                //System.out.println("El valor del iva en la fila " + i + " es: " + JT_Importacion.getValueAt(i, 14) + " el valor de 'cuentaIVA' es " + cuentaIVA + " y ejecutara 'cargaExcento'");
-
-            }
-            if (cuentaIVA == true) {
-                cargaBase_iva(i);
-            } else {
-                cargaExcento(i);
-            }
-            cargaSalida(i);
-            cargaTercero(i);
+        if(JRB_facturaCompra.isSelected()){
+            
         }
-        System.out.println("La carga de Archivos ha sido completada");
-        SIE.getJT_Exportacion().setModel(modelo_base_iva_excento);
-        SIE.setVisible(true);
-        SIT.getJT_Terceros().setModel(modelo_terceros);
-        SIT.setVisible(true);
     }//GEN-LAST:event_BTN_creacionArchivosImportacionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -216,8 +339,11 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BG_tipoFactura;
     private javax.swing.JButton BTN_creacionArchivosImportacion;
     private javax.swing.JButton BTN_seleccionArchivo;
+    private javax.swing.JRadioButton JRB_facturaCompra;
+    private javax.swing.JRadioButton JRB_facturaVenta;
     private javax.swing.JTable JT_Importacion;
     private javax.swing.JTextField TXT_nitEmpresa;
     private javax.swing.JTextField TXT_nombreEmpresa;
@@ -257,9 +383,6 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
             }
             while ((linea = br.readLine()) != null) {
                 String[] data = linea.split(";");
-                //System.out.println(linea);
-                //jComboBox1.addItem(linea);
-                //model_lista.addElement(linea);
                 model_tabla.addRow(data);
             }
             //jList1.setModel(model_lista);
@@ -277,160 +400,13 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
         }
     }
 
-    private void cargaBase_iva(int i) {
-        String nombre_empresa = TXT_nombreEmpresa.getText();
-        String nit_empresa = TXT_nitEmpresa.getText();
-        String[] base = new String[19];
-        String[] IVA = new String[19];
-        //------------------------------------- CARGA LA BASE PRIMERO -------------------------------------------
+    
 
-        base[0] = JT_Importacion.getValueAt(i, 3).toString();
-        base[1] = nombre_empresa;
-        base[2] = "FC";
-        base[3] = JT_Importacion.getValueAt(i, 0).toString();
-        base[4] = JT_Importacion.getValueAt(i, 4).toString();
-        base[5] = JT_Importacion.getValueAt(i, 2).toString();
-        base[6] = "FACTURA DE COMPRA";
-        base[7] = JT_Importacion.getValueAt(i, 10).toString();
-        base[8] = "";
-        base[9] = JT_Importacion.getValueAt(i, 6).toString();
-        base[10] = JT_Importacion.getValueAt(i, 6).toString();
-        base[11] = JT_Importacion.getValueAt(i, 11).toString();
-        base[12] = "";
-        base[13] = JT_Importacion.getValueAt(i, 3).toString();
-        base[14] = "";
-        base[15] = "";
-        base[16] = "";
-        base[17] = "0";
-        base[18] = nit_empresa;
-        modelo_base_iva_excento.addRow(base);
-        //--------------------------------carga IVA-------------------------------------------------------------------------------------------------
-        IVA[0] = JT_Importacion.getValueAt(i, 3).toString();
-        IVA[1] = nombre_empresa;
-        IVA[2] = "FC";
-        IVA[3] = JT_Importacion.getValueAt(i, 0).toString();
-        IVA[4] = JT_Importacion.getValueAt(i, 4).toString();
-        IVA[5] = JT_Importacion.getValueAt(i, 13).toString();
-        IVA[6] = "FACTURA DE COMPRA";
-        IVA[7] = "VALOR DE IVA";
-        IVA[8] = "";
-        IVA[9] = JT_Importacion.getValueAt(i, 6).toString();
-        IVA[10] = JT_Importacion.getValueAt(i, 6).toString();
-        IVA[11] = JT_Importacion.getValueAt(i, 14).toString();
-        IVA[12] = "";
-        IVA[13] = JT_Importacion.getValueAt(i, 3).toString();
-        IVA[14] = "";
-        IVA[15] = "";
-        IVA[16] = "";
-        IVA[17] = "0";
-        IVA[18] = nit_empresa;
-        //--------------------------------------asignacion al modelo---------------------------------
-        modelo_base_iva_excento.addRow(IVA);
-    }
+    
 
-    private void cargaTercero(int i) {
-        String nit_empresa = JT_Importacion.getValueAt(i, 6).toString();
-        boolean Existe = existeEmpresa(nit_empresa);
-        String[] DatosTerceros = new String[19];
-        String ciudad = "Bogota D.C.";
-        if (!Existe) {
-            if (JT_Importacion.getValueAt(i, 7).toString().isEmpty()) {
-                DatosTerceros[0] = "CC";
-                DatosTerceros[9] = "Persona Natural Regimen Comun";
-                DatosTerceros[12] = "Casa";
-            } else {
-                DatosTerceros[0] = "NIT";
-                DatosTerceros[9] = "Persona Juridica";
-                DatosTerceros[12] = "Empresa/Oficina";
-            }
-            DatosTerceros[1] = JT_Importacion.getValueAt(i, 6).toString();
-            DatosTerceros[2] = ciudad;
-            DatosTerceros[3] = JT_Importacion.getValueAt(i, 5).toString();
-            DatosTerceros[7] = "Proveedor, Vendedor";
-            DatosTerceros[8] = "-1";
-            DatosTerceros[10] = "0";
-            DatosTerceros[11] = JT_Importacion.getValueAt(i, 3).toString() + " 00:00";
-            DatosTerceros[13] = "-1";
-            DatosTerceros[14] = JT_Importacion.getValueAt(i, 8).toString();
-            DatosTerceros[15] = ciudad;
-            DatosTerceros[16] = JT_Importacion.getValueAt(i, 9).toString();
-            DatosTerceros[17] = "Normal";
-            DatosTerceros[18] = "0";
+    
 
-            modelo_terceros.addRow(DatosTerceros);
-        }
-
-    }
-
-    private void cargaExcento(int i) {
-        String nombre_empresa = TXT_nombreEmpresa.getText();
-        String nit_empresa = TXT_nitEmpresa.getText();
-        String[] excento = new String[19];
-        excento[0] = JT_Importacion.getValueAt(i, 3).toString();
-        excento[1] = nombre_empresa;
-        excento[2] = "FC";
-        excento[3] = JT_Importacion.getValueAt(i, 0).toString();
-        excento[4] = JT_Importacion.getValueAt(i, 4).toString();
-        excento[5] = JT_Importacion.getValueAt(i, 2).toString();
-        excento[6] = "FACTURA DE COMPRA";
-        excento[7] = JT_Importacion.getValueAt(i, 10).toString();
-        excento[8] = "";
-        excento[9] = JT_Importacion.getValueAt(i, 6).toString();
-        excento[10] = JT_Importacion.getValueAt(i, 6).toString();
-        excento[11] = JT_Importacion.getValueAt(i, 16).toString();
-        excento[12] = "";
-        excento[13] = JT_Importacion.getValueAt(i, 3).toString();
-        excento[14] = "";
-        excento[15] = "";
-        excento[16] = "";
-        excento[17] = "0";
-        excento[18] = nit_empresa;
-        modelo_base_iva_excento.addRow(excento);
-    }
-
-    private void cargaSalida(int i) {
-        String nombre_empresa = TXT_nombreEmpresa.getText();
-        String nit_empresa = TXT_nitEmpresa.getText();
-        String[] salida = new String[19];
-        salida[0] = JT_Importacion.getValueAt(i, 3).toString();
-        salida[1] = nombre_empresa;
-        salida[2] = "FC";
-        salida[3] = JT_Importacion.getValueAt(i, 0).toString();
-        salida[4] = JT_Importacion.getValueAt(i, 4).toString();
-        salida[5] = "11050501";
-        salida[6] = "FACTURA DE COMPRA";
-        salida[7] = "PAGO DE FACTURA";
-        salida[8] = "";
-        salida[9] = JT_Importacion.getValueAt(i, 6).toString();
-        salida[10] = JT_Importacion.getValueAt(i, 6).toString();
-        salida[11] = "";
-        salida[12] = JT_Importacion.getValueAt(i, 17).toString();
-        salida[13] = JT_Importacion.getValueAt(i, 3).toString();
-        salida[14] = "";
-        salida[15] = "";
-        salida[16] = "";
-        salida[17] = "0";
-        salida[18] = nit_empresa;
-        modelo_base_iva_excento.addRow(salida);
-    }
-
-    private boolean existeEmpresa(String nit_empresa) {
-        boolean Existe = false;
-        if (modelo_terceros.getRowCount() != 0) {
-            //System.out.println("-----------------------------------------------inicia comparacion con el valor " + nit_empresa + "-----------------------------------------------------------------");
-            for (int j = 0; j < modelo_terceros.getRowCount(); j++) {
-                if (modelo_terceros.getValueAt(j, 1).toString().matches(nit_empresa)) {
-                    Existe = true;
-                    //System.out.println("el nit de la empresa es: " + nit_empresa + " el valor a comparar es: " + modelo_terceros.getValueAt(j, 1) + " // existencia de la empresa = " + Existe);
-                    j = modelo_terceros.getRowCount() + 1;
-                } else {
-                    Existe = false;
-                    //System.out.println("el nit de la empresa es: " + nit_empresa + " el valor a comparar es: " + modelo_terceros.getValueAt(j, 1) + " // existencia de la empresa = " + Existe);
-                }
-            }
-        }
-        return Existe;
-    }
+    
 
     private void cargaCiudad() {
         String entrada;

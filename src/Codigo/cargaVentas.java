@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package Codigo;
 
 import javax.swing.table.DefaultTableModel;
+import vista.Entrada_Informacion_Excel;
+import vista.Salida_informacion_excel;
+import vista.Salida_informacion_terceros;
 
 /**
  *
