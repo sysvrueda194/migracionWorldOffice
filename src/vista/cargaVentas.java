@@ -27,4 +27,8 @@ public class cargaVentas {
         }
 
     }
+
+    private void agregabase(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
