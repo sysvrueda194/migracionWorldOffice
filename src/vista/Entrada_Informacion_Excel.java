@@ -5,6 +5,8 @@
  */
 package vista;
 
+import Codigo.CargaCompras;
+import Codigo.cargaVentas;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,6 +37,8 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
     DefaultTableModel modelo_base_iva_excento = (DefaultTableModel) SIE.getJT_Exportacion().getModel();
     DefaultTableModel modelo_terceros = (DefaultTableModel) SIT.getJT_Terceros().getModel();
     public String[] ciudades;
+    CargaCompras CC = new CargaCompras();
+    cargaVentas CV = new cargaVentas();
 
     /**
      * Creates new form Entrada_Informacion_Excel
@@ -164,8 +168,6 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
     public void setjScrollPane1(JScrollPane jScrollPane1) {
         this.jScrollPane1 = jScrollPane1;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -293,8 +295,10 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
 
     private void BTN_creacionArchivosImportacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_creacionArchivosImportacionActionPerformed
         // TODO add your handling code here:
-        if(JRB_facturaCompra.isSelected()){
-            
+        if (JRB_facturaCompra.isSelected()) {
+            CC.cargaModeloCompras();
+        } else if (JRB_facturaVenta.isSelected()) {
+            CV.cargaModelo();
         }
     }//GEN-LAST:event_BTN_creacionArchivosImportacionActionPerformed
 
@@ -399,14 +403,6 @@ public class Entrada_Informacion_Excel extends javax.swing.JFrame {
             }
         }
     }
-
-    
-
-    
-
-    
-
-    
 
     private void cargaCiudad() {
         String entrada;
